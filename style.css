@@ -1,0 +1,258 @@
+/* RESET GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@font-face {
+  font-family: '911 Porscha';
+  src: url('fonts/911porschav3.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+h1 ,.section-title , .info {
+  animation: bounce;
+}
+
+
+
+main {
+  background-color: #fcfcfc;
+  width: 100%;
+}
+
+/* HEADER / MENU SUPERIOR */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 5%;
+  z-index: 10; /* Mantém o menu por cima de tudo */
+  background-color: transparent;
+  
+}
+
+h2 {
+  font-family: '911 Porscha', sans-serif;
+  font-weight: 100;
+  font-size: 1.5rem;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+  font-size: 12px;
+}
+
+nav a {
+  color: #000;
+  font-weight: lighter;
+}
+
+/* SEÇÃO HERO */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fcfcfc;
+  overflow: hidden;
+}
+
+/* GRADIENTE DE TRANSIÇÃO ENTRE AS SEÇÕES */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 190px;
+  background: linear-gradient(
+    to bottom,
+    rgba(252, 252, 252, 0) 0%,
+    #1e1e1e 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* TÍTULO GIGANTE "PORSCHE" AO FUNDO */
+h1 {
+  position: absolute;
+  font-family: '911 Porscha', sans-serif;
+  font-weight: 100;
+  font-size: clamp(4rem, 13vw, 12rem);
+  text-align: center;
+  top: 25%;
+  z-index: 1;
+  user-select: none;
+}
+
+/* TEXTO DESCRITIVO DA HERO */
+.text-hero {
+  position: absolute;
+  left: 5%;
+  width: 220px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  font-weight: lighter;
+  line-height: 1.4;
+  z-index: 4;
+}
+
+/* CARRO E RODAS SOBREPOSTAS */
+.carro-container {
+  position: relative;
+  width: 75vw;
+  max-width: 900px;
+  margin-top: 80px; /* Empurra o carro ligeiramente para baixo do título */
+  z-index: 2;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+}
+
+.carro-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* BASE DAS RODAS */
+.rodas {
+  position: absolute;
+  width: 16.5%; /* Tamanho proporcional à carcaça */
+  z-index: 3;
+}
+
+.roda-dianteira {
+  bottom: 1%;
+  right: 13%;
+}
+
+.roda-traseira {
+  bottom: 0%;
+  left: 14.5%;
+}
+
+@keyframes girarRoda {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/* ========================================== */
+/* SECTION 2 - SOBRE (CARDS)                  */
+/* ========================================== */
+
+.sobre {
+  width: 100%;
+  background-color: #1e1e1e;
+  display: flex;
+  flex-direction: column; /* Organiza título no topo e cards embaixo */
+  align-items: center;
+  padding: 100px 20px;
+}
+
+.section-title {
+  color: #ffffff;
+  font-family: '911 Porscha', 'Arial', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-align: center;
+  margin-bottom: 50px; /* Espaço entre o título e os cards */
+}
+
+/* CONTAINER DOS 3 CARDS */
+.sobre-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* CARD INDIVIDUAL */
+.info {
+  flex: 1;
+  max-width: 320px;
+  background: rgb(25, 25, 25);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  padding: 0 0 25px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.info:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.img-wrapper {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.img-info {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Evita que a foto fique esticada */
+  display: block;
+}
+
+.info-title {
+  color: #ffffff;
+  font-family: '911 Porscha', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.info-text {
+  color: #8a8d93;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  font-weight: 400;
+  max-width: 90%;
+}
+
+/* RESPONSIVIDADE PARA CELULAR */
+@media (max-width: 768px) {
+  .sobre-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .info {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .text-hero {
+    position: static;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
